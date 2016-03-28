@@ -75,15 +75,15 @@ function oat2dex(){
     build_smali "$tmpdir/smali"
   fi
 
-  if [ ! -e "`dirname $file`/oat/arm/`basename $file ."${file##*.}"`.odex" ] && [ ! -e "`dirname $file`/oat/arm64/`basename $file ."${file##*.}"`.odex" ]; then
+  if [ ! -e "`dirname $file`/oat/x86_64/`basename $file ."${file##*.}"`.odex" ]; then
     return 0
   fi
 
-  for arch in arm64 arm; do
+  for arch in x86_64; do
     mkdir -p $tmpdir/dexout
     for x in "`dirname $file`/oat/$arch/`basename $file ."${file##*.}"`.odex"; do
       [ ! -e "$x" ] && continue
-      java -jar "$baksmali_jar" -x -o "$tmpdir/dexout" -c boot.oat -d "$tmpdir/system/framework/arm64" -d "$mpdir/system/framework/arm" "$x"
+      java -jar "$baksmali_jar" -x -o "$tmpdir/dexout" -c boot.oat -d "$tmpdir/system/framework/x86_64" "$x"
       echo "oat2dex: ${file}: ${arch}: `ls -l $tmpdir/dexout | wc -l`"
     done
     java -jar "$smali_jar" "$tmpdir/dexout" -o "$tmpdir/classes.dex"
