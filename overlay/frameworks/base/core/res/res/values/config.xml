@@ -3,13 +3,14 @@
     <!-- Don't allow volume change on the device. -->
     <bool name="config_useFixedVolume">true</bool>
 
-    <!-- Control the behavior when the user double-taps the home button.
+    <!-- Control the behavior when the user long presses the home button.
             0 - Nothing
             1 - Recent apps view in SystemUI
+            2 - Launch assist intent
          This needs to match the constants in
          policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
     -->
-    <integer name="config_doubleTapOnHomeBehavior">1</integer>
+    <integer name="config_longPressOnHomeBehavior">1</integer>
 
     <!-- Supports MS PlayReady in Chromium WebView -->
     <string-array name="config_keySystemUuidMapping" translatable="false">
@@ -97,48 +98,6 @@
     <!-- Flag indicating if device supports EAP SIM, AKA, AKA' -->
     <bool name="config_eap_sim_based_auth_supported">false</bool>
 
-    <!-- This device is data-only. -->
-    <bool name="config_voice_capable">false</bool>
-
-    <!-- This device does not allow sms service. -->
-    <bool name="config_sms_capable">false</bool>
-
-    <!-- Control the default UI mode type to use when there is no other type override
-         happening.  One of the following values (See Configuration.java):
-             1  UI_MODE_TYPE_NORMAL
-             4  UI_MODE_TYPE_TELEVISION
-             5  UI_MODE_TYPE_APPLIANCE
-         Any other values will have surprising consequences. -->
-    <integer name="config_defaultUiModeType">5</integer>
-
-    <!-- Override long press on home: launch assist intent. -->
-    <integer name="config_longPressOnHomeBehavior">0</integer>
-
-    <!-- Override configuration check for dpad so that we always appear to have one -->
-    <bool name="config_hasPermanentDpad">true</bool>
-
-    <bool name="config_defaultInTouchMode">false</bool>
-
-    <!-- disable screenshot chord -->
-    <bool name="config_enableScreenshotChord">false</bool>
-
-    <!-- Disable Cell broadcast message support -->
-    <bool name="config_cellBroadcastAppLinks">false</bool>
-
-    <!-- Use android tv account activity -->
-    <string name="config_chooseAccountActivity">com.google.android.gms/.common.account.NoTouchAccountPickerActivity</string>
-    <string name="config_chooseTypeAndAccountActivity">com.google.android.gms/.common.account.NoTouchAccountPickerActivity</string>
-
-    <!-- Wifi Dual Band support -->
-    <bool name="config_wifi_dual_band_support">true</bool>
-    
-    <!-- Wifi background scan support -->
-    <bool name="config_wifi_background_scan_support">true</bool>
-
-    <!-- Disable default bluetooth profiles -->
-    <bool name="config_bluetooth_default_profiles">false</bool>
-
-    <!-- Wifi driver stop delay -->
-    <integer name="config_wifi_driver_stop_delay">5000</integer>
-
+    <!-- Package of the unbundled tv remote service which can connect to tv remote provider -->
+    <string translatable="false" name="config_tvRemoteServicePackage">com.google.android.tv.remote.service</string>
 </resources>
